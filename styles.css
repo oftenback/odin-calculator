@@ -55,6 +55,7 @@ button {
 
 .dot {
   flex: initial;
+  background-color: red;
 }
 
 .op {

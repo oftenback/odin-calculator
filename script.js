@@ -55,10 +55,11 @@ function handleClick(e) {
     secondNum = null;
     opLive = '=';
     opStore = null;
-    console.log('eq pressed');
+    if (DEBUG) console.log('eq pressed');
     updateDisplay();
   // using equals with one operand (the current display)
   } else if (classes.contains('eq')) {
+    if (DEBUG) console.log('eq pressed');
     opLive = '=';
   // entering an operator when no other operator has been entered
   } else if (classes.contains('op') && !firstNum) {
@@ -77,6 +78,14 @@ function handleClick(e) {
   } else if (classes.contains('per')) {
     displayText = (+displayText / 100).toString();
     updateDisplay(); 
+  // implements +/- button
+  } else if (classes.contains('pm')) {
+    displayText = (+displayText * -1).toString();
+    updateDisplay();
+  } else if (classes.contains('dot')) {
+    if (!displayText.includes('.')) {
+      displayText += '.';
+    }
   }
 
   if (DEBUG) {
