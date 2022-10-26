@@ -1,3 +1,10 @@
+/*
+TODO:
+keyboard inputs
+backspace button
+would the logic make more sense using a tree structure?
+*/
+
 let displayText = '0';
 let firstNum = null;
 let secondNum = null;
@@ -16,6 +23,7 @@ function handleClick(e) {
   const classes = e.target.classList;
 
   if (isNaN(displayText)) {
+    if(DEBUG) console.log('cleaning up NaN in displayText');
     displayText = '0';
     firstNum = null;
     secondNum = null;
@@ -24,9 +32,11 @@ function handleClick(e) {
   }
   // entering numbers when the display is 0
   if (classes.contains('num') && displayText === '0') {
+    opLive = null;
     displayText = e.target.textContent;
     updateDisplay();
-  // entering numbers when the display is not 0
+  // entering numbers when the display is not 0 and no operation
+  //  has been pressed
   } else if (classes.contains('num') && !opLive) {
     displayText += e.target.textContent;
     updateDisplay();
@@ -82,6 +92,7 @@ function handleClick(e) {
   } else if (classes.contains('pm')) {
     displayText = (+displayText * -1).toString();
     updateDisplay();
+  // implements decimal button
   } else if (classes.contains('dot')) {
     if (!displayText.includes('.')) {
       displayText += '.';
