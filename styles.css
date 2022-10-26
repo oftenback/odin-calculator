@@ -1,0 +1,64 @@
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.display {
+  background-color: lightgray;
+  flex: intial;
+  padding: 10px;
+  width: 380px;
+  font-size: 50px;
+  text-align: right;
+  border: 10px black solid;
+  border-bottom: none;
+}
+
+.calc {
+  display: flex;
+  width: 400px;
+  border: 10px black;
+  border-style: solid;
+}
+
+button {
+  flex: 1;
+  width: 100px;
+  height: 50px;
+
+  font-size: 24px;
+  margin: 0px;
+  padding: auto;
+  border: 2px solid black;
+}
+
+.row {
+  display: flex;
+}
+
+.ops {
+  display: flex;
+  flex-direction: column;
+}
+
+.top {
+  background-color: teal;
+}
+
+.num {
+  background-color: red;
+}
+
+.zero {
+  flex: 2;
+}
+
+.dot {
+  flex: initial;
+}
+
+.op {
+  background-color: orange;
+}
+
+
