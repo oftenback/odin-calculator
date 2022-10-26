@@ -32,7 +32,7 @@ function handleClick(e) {
   }
   // entering numbers when the display is 0
   if (classes.contains('num') && displayText === '0') {
-    opLive = null;
+    if (opLive = '=') opLive = null;
     displayText = e.target.textContent;
     updateDisplay();
   // entering numbers when the display is not 0 and no operation
