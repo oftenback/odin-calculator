@@ -13,6 +13,13 @@ function updateDisplay() {
 updateDisplay();
 
 function handleClick(e) {
+  if (isNaN(displayText)) {
+    displayText = '0';
+    firstNum = null;
+    secondNum = null;
+    opLive = null;
+    opStore = null;
+  }
   // entering numbers when the display is 0
   if (e.target.classList.contains('num') && displayText === '0') {
     displayText = e.target.textContent;
@@ -46,7 +53,11 @@ function handleClick(e) {
     secondNum = null;
     opLive = '=';
     opStore = null;
+    console.log('eq pressed');
     updateDisplay();
+  // using equals with one operand (the current display)
+  } else if (e.target.classList.contains('eq')) {
+    opLive = '=';
   // entering an operator when no other operator has been entered
   } else if (e.target.classList.contains('op') && !firstNum) {
     firstNum = displayText;
